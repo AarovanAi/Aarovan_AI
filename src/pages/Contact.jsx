@@ -1,7 +1,59 @@
+import { useState } from 'react';
 import AnimatedSection from '../components/AnimatedSection';
 import './Contact.css';
 
 export default function Contact() {
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    partnershipType: 'University Placement Cell',
+    message: ''
+  });
+  const [status, setStatus] = useState({ type: '', message: '' });
+  const [isSubmitting, setIsSubmitting] = useState(false);
+
+  const handleChange = (e) => {
+    setFormData({
+      ...formData,
+      [e.target.name]: e.target.value
+    });
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setIsSubmitting(true);
+    setStatus({ type: '', message: '' });
+
+    const apiUrl = import.meta.env.VITE_API_URL || 'http://localhost:3001';
+
+    try {
+      const response = await fetch(`${apiUrl}/api/contact`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      });
+
+      const data = await response.json();
+
+      if (response.ok) {
+        setStatus({ type: 'success', message: 'Thank you! Your inquiry has been sent successfully.' });
+        setFormData({
+          name: '',
+          email: '',
+          partnershipType: 'University Placement Cell',
+          message: ''
+        });
+      } else {
+        setStatus({ type: 'error', message: data.error || 'Failed to send inquiry. Please try again.' });
+      }
+    } catch (error) {
+      setStatus({ type: 'error', message: 'Network error. Please check if the server is running.' });
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
   return (
     <main>
       {/* ── Hero ── */}
@@ -22,18 +74,42 @@ export default function Contact() {
           <AnimatedSection direction="left">
             <div className="contact-form-card">
               <h2>Send an Inquiry</h2>
-              <form className="contact-form" onSubmit={(e) => e.preventDefault()}>
+              {status.message && (
+                <div className={`form-status ${status.type}`}>
+                  {status.message}
+                </div>
+              )}
+              <form className="contact-form" onSubmit={handleSubmit}>
                 <div className="form-group">
                   <label>Full Name</label>
-                  <input type="text" placeholder="John Doe" />
+                  <input 
+                    type="text" 
+                    name="name"
+                    placeholder="John Doe" 
+                    value={formData.name}
+                    onChange={handleChange}
+                    required
+                  />
                 </div>
                 <div className="form-group">
                   <label>Institution Email</label>
-                  <input type="email" placeholder="john@university.edu" />
+                  <input 
+                    type="email" 
+                    name="email"
+                    placeholder="john@university.edu" 
+                    value={formData.email}
+                    onChange={handleChange}
+                    required
+                  />
                 </div>
                 <div className="form-group full-width">
                   <label>Partnership Type</label>
-                  <select>
+                  <select 
+                    name="partnershipType"
+                    value={formData.partnershipType}
+                    onChange={handleChange}
+                    required
+                  >
                     <option>University Placement Cell</option>
                     <option>Technical Bootcamp</option>
                     <option>Corporate Training</option>
@@ -42,11 +118,22 @@ export default function Contact() {
                 </div>
                 <div className="form-group full-width">
                   <label>Message</label>
-                  <textarea placeholder="Tell us about your institution..." rows="5" />
+                  <textarea 
+                    name="message"
+                    placeholder="Tell us about your institution..." 
+                    rows="5" 
+                    value={formData.message}
+                    onChange={handleChange}
+                    required
+                  />
                 </div>
                 <div className="full-width">
-                  <button type="submit" className="submit-btn gradient-primary btn-ripple">
-                    Submit Inquiry
+                  <button 
+                    type="submit" 
+                    className="submit-btn gradient-primary btn-ripple"
+                    disabled={isSubmitting}
+                  >
+                    {isSubmitting ? 'Sending...' : 'Submit Inquiry'}
                   </button>
                 </div>
               </form>
