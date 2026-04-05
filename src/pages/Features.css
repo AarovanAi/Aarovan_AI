@@ -58,7 +58,12 @@
               0 0 60px rgba(255, 107, 53, 0.15),
               0 0 80px rgba(0, 255, 255, 0.1);
   border-color: var(--glass-border);
-  background: var(--glass-bg-strong);
+}
+.feature-card:hover h3 {
+  color: var(--accent-orange);
+}
+.feature-card:hover p {
+  color: var(--on-surface);
 }
 .feature-card .icon-circle {
   width: 3rem;
@@ -101,9 +106,9 @@
 .fc-main p { font-size: 1.1rem; max-width: 32rem; }
 
 .fc-dark {
-  background: linear-gradient(135deg, var(--primary) 0%, var(--primary-container) 50%, var(--accent-orange) 100%);
+  background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
   color: rgba(255, 255, 255, 0.85);
-  box-shadow: 0 0 40px var(--cyber-shadow-orange);
+  box-shadow: 0 0 40px var(--cyber-shadow-orange), inset 0 0 60px rgba(0, 200, 255, 0.03);
 }
 .fc-dark h3 {
   font-family: 'Noto Serif', serif;

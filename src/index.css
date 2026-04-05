@@ -301,7 +301,7 @@ input, textarea, select {
    DESIGN SYSTEM UTILITIES
    ═══════════════════════════════════════════════ */
 .gradient-primary {
-  background: linear-gradient(135deg, var(--primary) 0%, var(--primary-container) 60%, #2a5570 100%);
+  background: linear-gradient(135deg, #1a1a2e 0%, #16213e 60%, #0f3460 100%);
 }
 
 .gradient-orange {
@@ -309,7 +309,7 @@ input, textarea, select {
 }
 
 .gradient-primary-orange {
-  background: linear-gradient(135deg, var(--primary) 0%, var(--primary-container) 50%, var(--accent-orange-dark) 100%);
+  background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
 }
 
 /* Cyber effects */

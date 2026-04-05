@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom';
 import AnimatedSection from '../components/AnimatedSection';
+import '../pages/Home.css';
 import './About.css';
 
 const approachSteps = [
@@ -152,20 +153,14 @@ export default function About() {
       {/* ── Glass CTA ── */}
       <section className="about-cta">
         <div className="container">
-          <AnimatedSection direction="scale">
             <div className="about-cta-card glass-panel editorial-shadow ghost-border">
               <h2>Get Started</h2>
               <p>Join our early access program to bring structured interview preparation to your college.</p>
               <div className="about-cta-buttons">
-                <Link to="/contact">
-                  <button className="btn-primary gradient-primary btn-ripple">Contact Us</button>
-                </Link>
-                <Link to="/features">
-                  <button className="btn-outline">Learn More</button>
-                </Link>
+                <Link to="/contact" className="btn-primary gradient-primary btn-ripple">Contact Us</Link>
+                <Link to="/features" className="btn-outline">Learn More</Link>
               </div>
             </div>
-          </AnimatedSection>
           <div className="about-cta-blob" />
         </div>
       </section>

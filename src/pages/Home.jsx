@@ -137,10 +137,10 @@ export default function Home() {
                 <h3>Academic Integrity</h3>
                 <p>Designed with engineering deans to ensure pedagogical alignment and rigorous evaluation standards.</p>
                 <div className="avatars-row">
-                  <div className="avatar a1" />
-                  <div className="avatar a2" />
-                  <div className="avatar a3" />
-                  <div className="avatar a4">+12</div>
+                  <div className="avatar a1"><span className="material-symbols-outlined">school</span></div>
+                  <div className="avatar a2"><span className="material-symbols-outlined">science</span></div>
+                  <div className="avatar a3"><span className="material-symbols-outlined">psychology</span></div>
+                  <div className="avatar a4"><span className="material-symbols-outlined">group</span></div>
                 </div>
               </div>
             </AnimatedSection>

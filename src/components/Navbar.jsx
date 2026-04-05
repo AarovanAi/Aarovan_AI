@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { NavLink, useLocation } from 'react-router-dom';
+import { NavLink, useLocation, Link } from 'react-router-dom';
 import { useTheme } from '../hooks/useTheme';
 import DarkModeToggle from './DarkModeToggle';
 import './Navbar.css';
@@ -55,8 +55,8 @@ export default function Navbar() {
         </div>
 
         <div className="navbar-actions">
-          <button className="btn-demo">Request Demo</button>
-          <button className="btn-partner gradient-primary btn-ripple">Partner with Us</button>
+          <Link to="/contact" className="btn-demo">Request Demo</Link>
+          <Link to="/contact" className="btn-partner gradient-primary btn-ripple">Partner with Us</Link>
           <button
             className="navbar-hamburger"
             onClick={() => setMobileOpen(!mobileOpen)}

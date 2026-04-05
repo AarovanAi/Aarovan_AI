@@ -198,8 +198,8 @@ export default function Contact() {
                 <p>Equip your students with the elite tools they need to succeed in top-tier technical interviews.</p>
               </div>
               <div className="contact-cta-buttons">
-                <button className="btn-white">Request Demo</button>
-                <button className="btn-ghost-white">Partner with Us</button>
+                <button className="btn-white" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>Request Demo</button>
+                <button className="btn-ghost-white" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>Partner with Us</button>
               </div>
             </div>
           </div>

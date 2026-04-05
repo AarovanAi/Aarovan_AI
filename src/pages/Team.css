@@ -152,7 +152,7 @@
 
 /* Philosophy Card */
 .team-philosophy-card {
-  background: linear-gradient(135deg, var(--primary) 0%, var(--primary-container) 50%, var(--accent-orange-dark) 100%);
+  background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
   border-radius: 1.75rem;
   padding: 2.5rem;
   display: flex;
@@ -162,6 +162,12 @@
   overflow: hidden;
   min-height: 20rem;
   box-shadow: 0 0 40px rgba(255, 107, 53, 0.2);
+}
+.team-philosophy-card:hover h3 {
+  color: var(--accent-orange);
+}
+.team-philosophy-card:hover p {
+  color: rgba(255, 255, 255, 0.9);
 }
 .team-philosophy-card .blur-circle {
   position: absolute;

@@ -307,6 +307,8 @@
 
 .about-team-image-wrapper {
   position: relative;
+  max-width: 220px;
+  margin: 0 auto;
 }
 
 .about-team-image {
@@ -337,9 +339,9 @@
   bottom: -2rem;
   right: -2rem;
   background: var(--glass-bg-strong);
-  padding: 1.5rem;
+  padding: 1rem;
   border-radius: 0.5rem;
-  max-width: 14rem;
+  max-width: 10rem;
   transform: rotate(3deg);
   z-index: 2;
 }
@@ -349,8 +351,8 @@
   font-style: italic;
   color: var(--primary);
   font-weight: 700;
-  font-size: 0.95rem;
-  line-height: 1.5;
+  font-size: 0.75rem;
+  line-height: 1.4;
 }
 
 .about-team-text h2 {
@@ -389,6 +391,7 @@
 .about-cta {
   padding: 6rem 0;
   position: relative;
+  z-index: 10;
 }
 
 .about-cta-card {
@@ -415,7 +418,11 @@
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
-  margin-bottom: 2rem;
+  margin-bottom: 1.5rem;
+}
+
+.about-cta-card p {
+  margin-bottom: 2.5rem;
 }
 
 .about-cta-buttons {
@@ -423,6 +430,9 @@
   flex-wrap: wrap;
   justify-content: center;
   gap: 1.5rem;
+  position: relative;
+  z-index: 100;
+  pointer-events: auto;
 }
 
 .about-cta-blob {
