@@ -1,7 +1,7 @@
-import { Link } from 'react-router-dom';
-import AnimatedSection from '../components/AnimatedSection';
-import heroImage from '../assets/Picture1.png';
-import './Home.css';
+import { Link } from "react-router-dom";
+import AnimatedSection from "../components/AnimatedSection";
+import heroImage from "../assets/Picture1.png";
+import "./Home.css";
 
 export default function Home() {
   return (
@@ -11,8 +11,19 @@ export default function Home() {
         <div className="container">
           <div className="home-hero-grid">
             <AnimatedSection direction="left">
-              <h1>Aarovan.ai — Turning Interview Communication into Measurable Outcomes</h1>
-             
+              <h1>
+                Aarovan.ai - Turning Interview Communication into Measurable
+                Outcomes
+              </h1>
+              <p>
+                Every year, India produces one of the largest pools of technical
+                talent in the world.
+              </p>
+              <p>
+                And yet, a significant number of capable students struggle to
+                convert their preparation into outcomes.
+              </p>
+              <p>Aarovan.ai is built to address this gap.</p>
               <div className="home-hero-buttons">
                 <Link to="/contact">
                   <button className="btn-primary gradient-primary btn-ripple">
@@ -48,7 +59,8 @@ export default function Home() {
             <div className="proof-section">
               <h2>PROOF</h2>
               <p className="proof-intro">
-                Aarovan.ai has been implemented through pilot programs in real student environments.
+                Aarovan.ai has been implemented through pilot programs in real
+                student environments.
               </p>
               <div className="proof-stats">
                 <div className="proof-stat-item">
@@ -60,16 +72,23 @@ export default function Home() {
                 </div>
                 <div className="proof-stat-item">
                   <span className="proof-stat-icon">
-                    <span className="material-symbols-outlined">integration_instructions</span>
+                    <span className="material-symbols-outlined">
+                      integration_instructions
+                    </span>
                   </span>
-                  <span className="proof-stat-label">Integrated into structured preparation workflows</span>
+                  <span className="proof-stat-label">
+                    Integrated into structured preparation workflows
+                  </span>
                 </div>
               </div>
               <div className="proof-outcome">
                 <p className="proof-outcome-label">Early outcomes indicate:</p>
                 <div className="proof-outcome-value">
                   <span className="outcome-highlight">40–50%</span>
-                  <span className="outcome-text">improvement in communication clarity and interview confidence</span>
+                  <span className="outcome-text">
+                    improvement in communication clarity and interview
+                    confidence
+                  </span>
                 </div>
               </div>
             </div>
@@ -87,20 +106,39 @@ export default function Home() {
           </AnimatedSection>
 
           <AnimatedSection delay={100}>
-            <div className="gap-intro">
-              <p>
-                Every year, India celebrates a milestone that is beginning to look less like a triumph and more like a warning.
-              </p>
-              <p>
-                Over 1.5 million engineers graduate from Indian institutions — the largest technical talent pipeline in the world.
-              </p>
-              <p>And yet, according to Mercer Mettl's India Graduate Skill Index 2025:</p>
-              <div className="gap-stat">
-                <span className="stat-highlight">Only 42.6%</span> of graduates are employable
+            <div className="gap-lead-layout">
+              <div className="gap-intro">
+                <p className="gap-kicker">
+                  The problem is not talent. It is translation.
+                </p>
+                <p>
+                  Every year, India produces one of the largest pools of
+                  technical talent in the world.
+                </p>
+                <p>
+                  And yet, a significant share of capable students still
+                  struggle to convert preparation into interviews, offers, and
+                  confidence.
+                </p>
+                <p>
+                  Aarovan.ai exists to close the distance between knowledge and
+                  performance.
+                </p>
               </div>
-              <p>
-                Despite years of education and preparation, a large proportion of students are unable to perform effectively in interviews.
-              </p>
+
+              <div className="gap-stat-panel">
+                <span className="gap-stat-label">
+                  Mercer Mettl, India Graduate Skill Index 2025
+                </span>
+                <div className="gap-stat">
+                  <span className="stat-highlight">Only 42.6%</span> of
+                  graduates are employable
+                </div>
+                <p className="gap-stat-note">
+                  The missing layer is not technical preparation. It is
+                  structured communication under pressure.
+                </p>
+              </div>
             </div>
           </AnimatedSection>
 
@@ -114,14 +152,23 @@ export default function Home() {
                   <li>Solving structured problems</li>
                   <li>Preparing for academic assessments</li>
                 </ul>
-                <p>However, interviews evaluate something fundamentally different.</p>
+                <p>
+                  However, interviews evaluate something fundamentally
+                  different.
+                </p>
                 <p>They require:</p>
                 <ul>
                   <li>Clear articulation of ideas</li>
                   <li>Structured thinking in real time</li>
-                  <li>The ability to explain, justify, and communicate under pressure</li>
+                  <li>
+                    The ability to explain, justify, and communicate under
+                    pressure
+                  </li>
                 </ul>
-                <p>While this gap is widely recognized, addressing it consistently remains a challenge.</p>
+                <p>
+                  While this gap is widely recognized, addressing it
+                  consistently remains a challenge.
+                </p>
               </div>
             </AnimatedSection>
 
@@ -132,11 +179,19 @@ export default function Home() {
                     <span className="material-symbols-outlined">school</span>
                   </div>
                   <h4>At an institutional level</h4>
-                  <p>Colleges aim to prepare students for placements, but face structural constraints.</p>
+                  <p>
+                    Colleges aim to prepare students for placements, but face
+                    structural constraints.
+                  </p>
                   <ul>
-                    <li>Conducting mock interviews for every student is difficult to scale</li>
+                    <li>
+                      Conducting mock interviews for every student is difficult
+                      to scale
+                    </li>
                     <li>Faculty bandwidth is limited</li>
-                    <li>Evaluation lacks consistency across large student groups</li>
+                    <li>
+                      Evaluation lacks consistency across large student groups
+                    </li>
                   </ul>
                 </div>
               </AnimatedSection>
@@ -148,14 +203,18 @@ export default function Home() {
                   </div>
                   <h4>At a student level</h4>
                   <p>Preparation is often individual and silent.</p>
-                  <p>Students may understand concepts well, but are rarely trained to:</p>
+                  <p>
+                    Students may understand concepts well, but are rarely
+                    trained to:
+                  </p>
                   <ul>
                     <li>Explain their reasoning clearly</li>
                     <li>Structure responses effectively</li>
                     <li>Communicate under real interview conditions</li>
                   </ul>
                   <p className="gap-conclusion">
-                    As a result, communication becomes the limiting factor in an otherwise strong preparation process.
+                    As a result, communication becomes the limiting factor in an
+                    otherwise strong preparation process.
                   </p>
                 </div>
               </AnimatedSection>
@@ -171,8 +230,18 @@ export default function Home() {
             <div className="solution-header">
               <h2>WHAT AAROVAN.AI DOES</h2>
               <p className="solution-intro">
-                Aarovan.ai introduces structure into this missing layer of preparation.
+                Aarovan.ai introduces structure into this missing layer of
+                preparation.
               </p>
+            </div>
+          </AnimatedSection>
+
+          <AnimatedSection delay={50}>
+            <div className="solution-rail">
+              <span>Structured practice</span>
+              <span>Objective evaluation</span>
+              <span>Actionable feedback</span>
+              <span>Progress tracking</span>
             </div>
           </AnimatedSection>
 
@@ -216,7 +285,10 @@ export default function Home() {
 
           <AnimatedSection delay={500}>
             <div className="solution-footer">
-              <p>The focus shifts from one-time preparation to continuous performance improvement.</p>
+              <p>
+                The focus shifts from one-time preparation to continuous
+                performance improvement.
+              </p>
             </div>
           </AnimatedSection>
         </div>
@@ -258,7 +330,9 @@ export default function Home() {
             <AnimatedSection delay={300}>
               <div className="how-step white">
                 <div className="how-step-top">
-                  <span className="material-symbols-outlined">record_voice_over</span>
+                  <span className="material-symbols-outlined">
+                    record_voice_over
+                  </span>
                   <span className="how-step-number">01</span>
                 </div>
                 <h3>Practice</h3>
@@ -313,7 +387,10 @@ export default function Home() {
 
           <AnimatedSection delay={550}>
             <div className="how-conclusion">
-              <p>This ensures that communication is actively developed, not assumed.</p>
+              <p>
+                This ensures that communication is actively developed, not
+                assumed.
+              </p>
             </div>
           </AnimatedSection>
         </div>
@@ -323,10 +400,12 @@ export default function Home() {
       <section className="home-bento">
         <div className="container">
           <div className="bento-grid">
-           
             {/* Row 2 */}
             <AnimatedSection className="bento-4" delay={100}>
-              <div className="bento-small-card ghost-border" style={{ height: '100%' }}>
+              <div
+                className="bento-small-card ghost-border"
+                style={{ height: "100%" }}
+              >
                 <h4>24/7 Access</h4>
                 <p>Empower students to practice anytime, anywhere.</p>
               </div>
@@ -334,16 +413,29 @@ export default function Home() {
 
             <AnimatedSection className="bento-8" delay={200}>
               <div className="bento-glass-row glass-card glass-highlight ghost-border">
-                <div style={{ display: 'flex', alignItems: 'center', gap: '1.5rem' }}>
+                <div
+                  style={{
+                    display: "flex",
+                    alignItems: "center",
+                    gap: "1.5rem",
+                  }}
+                >
                   <div className="icon-box">
-                    <span className="material-symbols-outlined">rocket_launch</span>
+                    <span className="material-symbols-outlined">
+                      rocket_launch
+                    </span>
                   </div>
                   <div>
                     <h4>Accelerated Placements</h4>
-                    <p>Reduce the time-to-hire by presenting interview-ready candidates.</p>
+                    <p>
+                      Reduce the time-to-hire by presenting interview-ready
+                      candidates.
+                    </p>
                   </div>
                 </div>
-                <span className="material-symbols-outlined trailing-icon">trending_up</span>
+                <span className="material-symbols-outlined trailing-icon">
+                  trending_up
+                </span>
               </div>
             </AnimatedSection>
           </div>
@@ -355,10 +447,15 @@ export default function Home() {
         <div className="container">
           <AnimatedSection direction="scale">
             <h2>Ready to Elevate Your Institution?</h2>
-            <p>Join the ranks of leading engineering colleges prioritizing student success through AI-led training.</p>
+            <p>
+              Join the ranks of leading engineering colleges prioritizing
+              student success through AI-led training.
+            </p>
             <div className="home-cta-buttons">
               <Link to="/contact">
-                <button className="btn-primary gradient-primary btn-ripple">Partner with Us Today</button>
+                <button className="btn-primary gradient-primary btn-ripple">
+                  Partner with Us Today
+                </button>
               </Link>
               <Link to="/contact">
                 <button className="btn-outline">Talk to an Expert</button>
