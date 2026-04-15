@@ -25,8 +25,10 @@ export default function Navbar() {
   }, []);
 
   useEffect(() => {
-    setMobileOpen(false);
-  }, [location]);
+    if (!mobileOpen) return;
+    const raf = requestAnimationFrame(() => setMobileOpen(false));
+    return () => cancelAnimationFrame(raf);
+  }, [location.pathname, mobileOpen]);
 
   const logoSrc = isDark ? '/logo_light.png' : '/logo.png';
 

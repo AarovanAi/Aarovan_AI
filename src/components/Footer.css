@@ -22,6 +22,8 @@
   font-size: 0.875rem;
   line-height: 1.7;
   margin-top: 0.75rem;
+  text-wrap: pretty;
+  word-break: break-word;
 }
 
 .footer-brand .footer-logo {
@@ -51,6 +53,8 @@
   font-size: 0.7rem;
   text-transform: uppercase;
   letter-spacing: 0.15em;
+  text-wrap: balance;
+  line-height: 1.2;
 }
 
 .footer-column ul {

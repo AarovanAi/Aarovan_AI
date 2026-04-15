@@ -6,10 +6,11 @@ export default function AnimatedSection({
   direction = 'up', 
   delay = 0, 
   className = '',
-  as: Tag = 'div'
+  as
 }) {
   const [ref, isVisible] = useInView({ threshold: 0.1 });
   const innerRef = useRef(null);
+  const Tag = as || 'div';
 
   useEffect(() => {
     if (isVisible && innerRef.current) {

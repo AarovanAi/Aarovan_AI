@@ -17,15 +17,19 @@
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
-  line-height: 1.1;
+  line-height: 1.2;
   margin-bottom: 1.25rem;
   letter-spacing: -0.02em;
+  text-wrap: balance;
+  word-break: break-word;
 }
 .contact-hero p {
   font-size: 1.2rem;
   color: var(--on-surface-variant);
   max-width: 36rem;
   line-height: 1.7;
+  text-wrap: pretty;
+  word-break: break-word;
 }
 
 /* ═══ Contact Grid ═══ */
@@ -67,6 +71,8 @@
   font-weight: 700;
   color: var(--primary);
   margin-bottom: 2rem;
+  text-wrap: balance;
+  line-height: 1.2;
 }
 .contact-form {
   display: grid;
@@ -193,6 +199,8 @@
   font-weight: 700;
   color: var(--primary);
   margin-bottom: 1.5rem;
+  text-wrap: balance;
+  line-height: 1.2;
 }
 .contact-item {
   display: flex;

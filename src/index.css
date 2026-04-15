@@ -126,13 +126,39 @@ body {
   color: var(--on-surface);
   background: #ffffff;
   background-attachment: fixed;
-  line-height: 1.65;
+  line-height: 1.6;
   overflow-x: hidden;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
 }
 
 ::selection {
   background: var(--primary-fixed);
   color: var(--on-primary-fixed);
+}
+
+::selection {
+  background: var(--primary-fixed);
+  color: var(--on-primary-fixed);
+}
+
+/* Respect reduced-motion preferences */
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+
+  .animate-on-scroll {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+
+  .glass-card,
+  .glass-panel,
+  .glass-orange {
+    transition: none !important;
+  }
 }
 
 img {
@@ -159,12 +185,28 @@ input, textarea, select {
 /* ═══════════════════════════════════════════════
    TYPOGRAPHY
    ═══════════════════════════════════════════════ */
+h1, h2, h3, h4, h5, h6 {
+  line-height: 1.2;
+  text-wrap: balance;
+  word-break: break-word;
+  overflow-wrap: break-word;
+}
+
+p {
+  line-height: 1.7;
+  word-break: break-word;
+  overflow-wrap: break-word;
+  text-wrap: pretty;
+}
+
 .font-headline {
   font-family: 'Noto Serif', Georgia, serif;
+  line-height: 1.2;
 }
 
 .font-body {
   font-family: 'Inter', system-ui, sans-serif;
+  line-height: 1.6;
 }
 
 .font-label {
@@ -197,7 +239,11 @@ input, textarea, select {
   box-shadow: 0 8px 32px rgba(31, 38, 135, 0.15),
               0 0 0 1px var(--glass-border) inset,
               0 0 40px rgba(255, 107, 53, 0.08);
-  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1),
+              box-shadow 0.4s cubic-bezier(0.4, 0, 0.2, 1),
+              border-color 0.4s cubic-bezier(0.4, 0, 0.2, 1),
+              background-color 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  will-change: transform;
 }
 
 .glass-card:hover {
@@ -217,7 +263,11 @@ input, textarea, select {
   border: 1.5px solid var(--glass-border);
   box-shadow: 0 8px 32px rgba(31, 38, 135, 0.12),
               0 0 0 1px var(--glass-border) inset;
-  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1),
+              box-shadow 0.4s cubic-bezier(0.4, 0, 0.2, 1),
+              border-color 0.4s cubic-bezier(0.4, 0, 0.2, 1),
+              background-color 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  will-change: transform;
 }
 
 .glass-panel:hover {
@@ -245,7 +295,11 @@ input, textarea, select {
   box-shadow: 0 8px 32px rgba(255, 107, 53, 0.15),
               0 0 0 1px var(--glass-border) inset,
               0 0 40px rgba(255, 107, 53, 0.1);
-  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1),
+              box-shadow 0.4s cubic-bezier(0.4, 0, 0.2, 1),
+              border-color 0.4s cubic-bezier(0.4, 0, 0.2, 1),
+              background-color 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  will-change: transform;
 }
 
 .glass-orange:hover {
@@ -488,6 +542,7 @@ input, textarea, select {
   opacity: 0;
   transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1), 
               transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: transform, opacity;
 }
 
 .animate-on-scroll.animate-up {
@@ -584,6 +639,23 @@ input, textarea, select {
 @media (max-width: 480px) {
   .container {
     padding: 0 1rem;
+  }
+  
+  h1 {
+    font-size: clamp(1.75rem, 5vw, 2rem) !important;
+  }
+  
+  h2 {
+    font-size: clamp(1.5rem, 4.5vw, 1.75rem) !important;
+  }
+  
+  h3 {
+    font-size: clamp(1.25rem, 4vw, 1.4rem) !important;
+  }
+  
+  p {
+    font-size: clamp(0.9rem, 2.5vw, 1rem) !important;
+    line-height: 1.6;
   }
 }
 
