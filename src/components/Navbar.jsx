@@ -1,7 +1,6 @@
 import { useState, useEffect } from 'react';
 import { NavLink, useLocation, Link } from 'react-router-dom';
 import { useTheme } from '../hooks/useTheme';
-import DarkModeToggle from './DarkModeToggle';
 import './Navbar.css';
 
 const navItems = [
@@ -86,7 +85,6 @@ export default function Navbar() {
         </button>
       </div>
       </nav>
-      <DarkModeToggle />
     </>
   );
 }

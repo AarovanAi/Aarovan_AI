@@ -1,210 +1,141 @@
-import { useState } from 'react';
-import AnimatedSection from '../components/AnimatedSection';
-import './Contact.css';
+import AnimatedSection from "../components/AnimatedSection";
+import { Link } from "react-router-dom";
+import contactImage from "../assets/contact.jpg";
 
 export default function Contact() {
-  const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    partnershipType: 'University Placement Cell',
-    message: ''
-  });
-  const [status, setStatus] = useState({ type: '', message: '' });
-  const [isSubmitting, setIsSubmitting] = useState(false);
-
-  const handleChange = (e) => {
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value
-    });
-  };
-
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    setIsSubmitting(true);
-    setStatus({ type: '', message: '' });
-
-    const apiUrl = import.meta.env.DEV ? 'http://localhost:3001' : '';
-
-    try {
-      const response = await fetch(`${apiUrl}/api/contact`, {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(formData),
-      });
-
-      const data = await response.json();
-
-      if (response.ok) {
-        setStatus({ type: 'success', message: 'Thank you! Your inquiry has been sent successfully.' });
-        setFormData({
-          name: '',
-          email: '',
-          partnershipType: 'University Placement Cell',
-          message: ''
-        });
-      } else {
-        setStatus({ type: 'error', message: data.error || 'Failed to send inquiry. Please try again.' });
-      }
-    } catch {
-      setStatus({ type: 'error', message: 'Network error. Please check if the server is running.' });
-    } finally {
-      setIsSubmitting(false);
-    }
-  };
   return (
-    <main>
-      {/* ── Hero ── */}
-      <section className="contact-hero">
-        <div className="container">
-          <AnimatedSection>
-            <span className="tag">Collaboration</span>
-            <h1>Partner with Us</h1>
-            <p>Join our mission to democratize elite interview preparation. We collaborate with forward-thinking institutions.</p>
-          </AnimatedSection>
-        </div>
-      </section>
+    <>
+      <main className="pt-24">
 
-      {/* ── Main Grid ── */}
-      <div className="container">
-        <div className="contact-grid">
-          {/* Form */}
-          <AnimatedSection direction="left">
-            <div className="contact-form-card">
-              <h2>Send an Inquiry</h2>
-              {status.message && (
-                <div className={`form-status ${status.type}`}>
-                  {status.message}
+<AnimatedSection as="section" className="max-w-7xl mx-auto px-8 py-20 lg:py-32 grid lg:grid-cols-12 gap-12 items-center">
+<div className="lg:col-span-8">
+<div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-secondary-container text-on-secondary-container text-xs font-bold uppercase tracking-widest mb-6">
+<span className="w-2 h-2 rounded-full bg-primary animate-pulse"></span>
+                    Collaboration
                 </div>
-              )}
-              <form className="contact-form" onSubmit={handleSubmit}>
-                <div className="form-group">
-                  <label>Full Name</label>
-                  <input 
-                    type="text" 
-                    name="name"
-                    placeholder="John Doe" 
-                    value={formData.name}
-                    onChange={handleChange}
-                    required
-                  />
-                </div>
-                <div className="form-group">
-                  <label>Institution Email</label>
-                  <input 
-                    type="email" 
-                    name="email"
-                    placeholder="john@university.edu" 
-                    value={formData.email}
-                    onChange={handleChange}
-                    required
-                  />
-                </div>
-                <div className="form-group full-width">
-                  <label>Partnership Type</label>
-                  <select 
-                    name="partnershipType"
-                    value={formData.partnershipType}
-                    onChange={handleChange}
-                    required
-                  >
-                    <option>University Placement Cell</option>
-                    <option>Technical Bootcamp</option>
-                    <option>Corporate Training</option>
-                    <option>Other</option>
-                  </select>
-                </div>
-                <div className="form-group full-width">
-                  <label>Message</label>
-                  <textarea 
-                    name="message"
-                    placeholder="Tell us about your institution..." 
-                    rows="5" 
-                    value={formData.message}
-                    onChange={handleChange}
-                    required
-                  />
-                </div>
-                <div className="full-width">
-                  <button 
-                    type="submit" 
-                    className="submit-btn gradient-primary btn-ripple"
-                    disabled={isSubmitting}
-                  >
-                    {isSubmitting ? 'Sending...' : 'Submit Inquiry'}
-                  </button>
-                </div>
-              </form>
-            </div>
-          </AnimatedSection>
+<h1 className="font-headline text-5xl md:text-7xl font-black text-primary leading-[1.1] mb-8">
+                    Partner with Us
+                </h1>
+<p className="font-body text-xl text-on-surface-variant max-w-2xl leading-relaxed">
+                    Join our mission to democratize elite interview preparation. We empower institutions with AI-native coaching that bridges the gap between academic theory and industrial excellence.
+                </p>
+</div>
+<div className="lg:col-span-4 hidden lg:block">
+<div className="relative">
+<div className="absolute -top-10 -left-10 w-32 h-32 bg-secondary-fixed-dim rounded-full opacity-20 blur-3xl"></div>
+<img alt="Academic collaboration" className="w-full h-auto rounded-xl editorial-shadow" src={contactImage} />
+</div>
+</div>
+</AnimatedSection>
 
-          {/* Side */}
-          <AnimatedSection direction="right" delay={200}>
-            <div className="contact-side">
-              <div className="contact-details-card">
-                <h3>Direct Contact</h3>
-                <div className="contact-item">
-                  <div className="icon-circle">
-                    <span className="material-symbols-outlined">mail</span>
-                  </div>
-                  <div>
-                    <div className="contact-label">Email</div>
-                    <div className="contact-value">aarovan.ai@gmail.com</div>
-                  </div>
-                </div>
-                <div className="contact-item">
-                  <div className="icon-circle">
-                    <span className="material-symbols-outlined">location_on</span>
-                  </div>
-                  <div>
-                    <div className="contact-label">Headquarters</div>
-                    <div className="contact-value">Delhi, IN</div>
-                  </div>
-                </div>
-              </div>
+<AnimatedSection as="section" className="bg-surface-container-low py-24">
+<div className="max-w-7xl mx-auto px-8 grid lg:grid-cols-12 gap-16">
 
-              <div className="contact-quote glass-panel">
-                <span className="material-symbols-outlined bg-deco">school</span>
-                <blockquote>
-                  Whether you're a student, institution, or partner — Aarovan.ai helps improve interview communication and readiness.
-                </blockquote>
-                <div className="attribution">— Engineering Excellence Division</div>
-              </div>
-            </div>
-          </AnimatedSection>
-        </div>
+<div className="lg:col-span-7">
+<div className="bg-surface-container-lowest p-10 md:p-12 rounded-xl editorial-shadow">
+<h2 className="font-headline text-3xl font-bold text-primary mb-10">Send an Inquiry</h2>
+<form className="space-y-8">
+<div className="grid md:grid-cols-2 gap-8">
+<div className="space-y-2">
+<label className="text-sm font-semibold text-on-surface-variant uppercase tracking-wider">Full Name</label>
+<input className="w-full bg-surface-container-low border-none rounded-lg px-4 py-4 focus:ring-1 focus:ring-primary-fixed-dim transition-all outline-none" placeholder="John Doe" type="text"/>
+</div>
+<div className="space-y-2">
+<label className="text-sm font-semibold text-on-surface-variant uppercase tracking-wider">Institution Email</label>
+<input className="w-full bg-surface-container-low border-none rounded-lg px-4 py-4 focus:ring-1 focus:ring-primary-fixed-dim transition-all outline-none" placeholder="dean@university.edu" type="email"/>
+</div>
+</div>
+<div className="space-y-2">
+<label className="text-sm font-semibold text-on-surface-variant uppercase tracking-wider">Partnership Type</label>
+<select className="w-full bg-surface-container-low border-none rounded-lg px-4 py-4 focus:ring-1 focus:ring-primary-fixed-dim transition-all outline-none appearance-none">
+<option>University Placement Cell</option>
+<option>Technical Bootcamp</option>
+<option>Corporate Training</option>
+<option>Other</option>
+</select>
+</div>
+<div className="space-y-2">
+<label className="text-sm font-semibold text-on-surface-variant uppercase tracking-wider">Message</label>
+<textarea className="w-full bg-surface-container-low border-none rounded-lg px-4 py-4 focus:ring-1 focus:ring-primary-fixed-dim transition-all outline-none" placeholder="How can we help your students excel?" rows="5"></textarea>
+</div>
+<button className="w-full primary-gradient text-white font-bold py-5 rounded-lg label-md uppercase tracking-[0.05em] shadow-lg hover:shadow-xl transition-all">
+                                Send Message
+                            </button>
+</form>
+</div>
+</div>
 
-        {/* Progress Thread */}
-        <AnimatedSection>
-          <div className="contact-thread">
-            <div className="contact-thread-line">
-              <div className="contact-thread-dot" />
-            </div>
-            <div className="contact-thread-label">AI-Driven Professional Growth</div>
-          </div>
-        </AnimatedSection>
+<div className="lg:col-span-5 flex flex-col gap-10">
 
-        {/* CTA */}
-        <AnimatedSection direction="scale">
-          <div className="contact-cta">
-            <div className="bg-texture" style={{
-              backgroundImage: "url('https://lh3.googleusercontent.com/aida-public/AB6AXuAWuvgpgkSazT2Hdw34Wo0S_TPlSq4qcKEcT9Z4IaaAdSVpGsrIel-pGMKP7S1ULPXsAdwzqn-5JJTcEP2bBJ3ICJo1b2zSTUIC60DUQSoMiI_ONQjexNq5vmjNWkj5B0gkNe5nrSoFSgs1vwd8mWVU-Um3X_juutBoAAIIIuRAdKwUPvy0FebPuLUOupgctZrzgpSDS8FDXUbASEduWaW3htZnhoYuRgRKUsh9bN4IpQzPYj-eE6TnZam3S2logw4bnFfYOUTUWcQ')"
-            }} />
-            <div className="contact-cta-inner">
-              <div>
-                <h2>Transform Placement Preparation at Your Institution</h2>
-                <p>Equip your students with the elite tools they need to succeed in top-tier technical interviews.</p>
-              </div>
-              <div className="contact-cta-buttons">
-                <button className="btn-white" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>Request Demo</button>
-                <button className="btn-ghost-white" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>Partner with Us</button>
-              </div>
-            </div>
-          </div>
-        </AnimatedSection>
-      </div>
-    </main>
+<div className="space-y-8">
+<h3 className="font-headline text-2xl font-bold text-primary">Direct Contact</h3>
+<div className="space-y-6">
+<div className="flex items-start gap-4">
+<div className="w-12 h-12 bg-secondary-container flex items-center justify-center rounded-xl text-primary shrink-0">
+<span className="material-symbols-outlined">mail</span>
+</div>
+<div>
+<p className="text-sm text-on-surface-variant font-medium uppercase tracking-tighter">Email</p>
+<p className="text-lg font-bold text-primary">aarovan.ai@gmail.com</p>
+</div>
+</div>
+<div className="flex items-start gap-4">
+<div className="w-12 h-12 bg-secondary-container flex items-center justify-center rounded-xl text-primary shrink-0">
+<span className="material-symbols-outlined">location_on</span>
+</div>
+<div>
+<p className="text-sm text-on-surface-variant font-medium uppercase tracking-tighter">HQ</p>
+<p className="text-lg font-bold text-primary">Delhi, IN</p>
+</div>
+</div>
+</div>
+</div>
+
+<div className="glass-panel p-8 rounded-xl relative overflow-hidden mt-6">
+<div className="absolute -right-6 -bottom-6 opacity-10">
+<span className="material-symbols-outlined text-9xl">school</span>
+</div>
+<span className="material-symbols-outlined text-primary text-4xl mb-4">school</span>
+<p className="font-headline text-xl text-primary leading-relaxed italic">
+                            Whether you're a student, institution, or partner — Aarovan.ai helps improve interview communication and readiness.
+                        </p>
+<p className="mt-6 font-body font-bold text-primary">— Engineering Excellence Division</p>
+</div>
+
+<div className="rounded-xl overflow-hidden grayscale contrast-125 brightness-90 editorial-shadow h-48 relative">
+<img alt="Office location" className="w-full h-full object-cover" data-alt="Monochrome architectural close-up of a sleek modern skyscraper facade with glass and steel geometric patterns" data-location="Delhi" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB6qYEFYKD-o2z3r8eB-qP4EAVCVvk1vxYacTkB3woOsNF8axh_p7G0sw7CdsC4Lpa0s-acudAXZoCZKPAwl0WRGujfYJARwYhmrg5VpX1uYzJEp8xs412PlbOTRd5Ym2fAOeTwv-_DlYOagDiZsnH-AbfCLNVaIXrYgouSKAuNTbguzxEW3q86c_rYT8i1Po88066-dYIRLNtHLSmiZyuN4wS-3FBtZbP1PaBJESxpSsGDtOGGDnwGQiwowYhs3qbGn4K4X584QvsD"/>
+</div>
+</div>
+</div>
+</AnimatedSection>
+
+<div className="w-full bg-surface border-t border-outline-variant/15 py-12 overflow-hidden whitespace-nowrap">
+<div className="max-w-7xl mx-auto px-8 flex items-center justify-center gap-4">
+<div className="h-[2px] flex-grow bg-secondary-fixed-dim relative">
+<div className="absolute right-0 top-1/2 -translate-y-1/2 w-4 h-4 glass-panel rounded-full shadow-[0_0_15px_rgba(171,203,225,0.8)]"></div>
+</div>
+<span className="font-headline font-black text-primary-container text-sm md:text-base tracking-[0.2em] uppercase">AI-Driven Professional Growth</span>
+<div className="h-[2px] flex-grow bg-secondary-fixed-dim"></div>
+</div>
+</div>
+
+<AnimatedSection as="section" className="max-w-7xl mx-auto px-8 py-24">
+<div className="primary-gradient p-12 md:p-20 rounded-xl editorial-shadow text-center relative overflow-hidden">
+<div className="absolute top-0 right-0 w-96 h-96 bg-white/5 rounded-full -translate-y-1/2 translate-x-1/2 blur-3xl"></div>
+<h2 className="font-headline text-3xl md:text-5xl font-bold text-white mb-8 max-w-4xl mx-auto">
+                    Transform Placement Preparation at Your Institution
+                </h2>
+<div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+<Link className="bg-white text-primary px-10 py-4 rounded-lg font-bold label-md tracking-wider hover:bg-surface-container transition-all" to="/contact">
+                        Request Demo
+                    </Link>
+<Link className="border border-white/30 text-white px-10 py-4 rounded-lg font-bold label-md tracking-wider hover:bg-white/10 transition-all" to="/contact">
+                        Partner With Us
+                    </Link>
+</div>
+</div>
+</AnimatedSection>
+</main>
+    </>
   );
 }
